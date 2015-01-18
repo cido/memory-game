@@ -1,0 +1,55 @@
+{
+    "env": {
+        "browser":    true,
+        "amd":        true,
+        "node":       true
+    },
+
+    "globals": {
+        "define":     false,
+        "require":    true,
+
+        "alert":      true,
+        "console":    true,
+        "module":     true,
+
+        "describe":   true,
+        "it":         true,
+        "before":     true,
+        "beforeEach": true,
+        "after":      true,
+        "afterEach":  true,
+        "expect":     true,
+        "should":     true,
+
+        "Drop":       true
+    },
+
+    "rules": {
+        "dot-notation":         0, // allow obj['somePropertyName']
+        "new-cap":              0, // do not require 'new' keyword, allows i.e. "var promise = $.Deferred()"
+        "no-alert":             1, // disallow alerts. there should be so few, manually adding exceptions is ok.
+        "no-console":           0,
+        "no-mixed-spaces-and-tabs": 1,
+        "no-space-before-semi": 1,
+        "no-spaced-func":       1,
+        "no-trailing-spaces":   1, // requires a new version of linter-eslint for Atom to work
+        "no-wrap-func":         0, // needs to be allowed for '(function () {}).should.x' to work in tests
+        "no-underscore-dangle": 0, // allow _variableName
+        "no-new":               0, // allow new,
+        "no-nested-ternary":    1,
+
+        // requires local variable names to be used, but allows unused arguments
+        "no-unused-vars":       [2, { "vars": "all", "args": "none" }],
+
+        // disable requirements for strict spacing rules in object properties or assignments
+        "key-spacing":          0,
+        "no-multi-spaces":      0,
+
+        "quotes":               0, // allow both single and double quotes
+        "space-after-keywords": 1,
+        "space-infix-ops":      1,
+        "space-return-throw-case": 1,
+        "strict":               0  // do not require strict mode
+    }
+}
