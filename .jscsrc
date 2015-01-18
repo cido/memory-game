@@ -1,6 +1,8 @@
 {
     "preset": "google",
-    "fileExtensions": [".js"],
+    "fileExtensions": [".js", ".jsx"],
+
+    "esprima": "esprima-fb",
 
     "validateLineBreaks": "LF",
     "validateIndentation": 4,

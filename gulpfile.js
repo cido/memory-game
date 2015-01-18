@@ -10,6 +10,7 @@ var browserSync = require("browser-sync"),
     buffer = require("vinyl-buffer"),
     gulp = require("gulp"),
     notify = require("gulp-notify"),
+    reactify = require("reactify"),
     source = require("vinyl-source-stream"),
     sass = require("gulp-sass"),
     sourcemaps = require("gulp-sourcemaps");
@@ -17,7 +18,7 @@ var browserSync = require("browser-sync"),
 // Constants used in this file
 var SRC = "./src/",
     DEST = "./build/",
-    JS_FILES = SRC + "scripts/*.js",
+    JS_FILES = SRC + "scripts/**/*.{js,jsx}",
     STATIC_FILES = SRC + "{.,images}/*.{html,png,jpeg,jpg}",
     STYLESHEET_FILES = SRC + "styles/*.scss";
 
@@ -52,7 +53,8 @@ function onError() {
    called main.js
 */
 gulp.task("browserify", function() {
-    return browserify({ entries: [SRC + "scripts/main.js"], debug: true })
+    return browserify({ entries: [SRC + "scripts/main.jsx"], extensions: [".jsx"], debug: true })
+        .transform(reactify)
         .bundle()
         .on("error", onError)
         .pipe(source("main.js"))

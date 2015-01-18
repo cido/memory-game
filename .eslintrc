@@ -5,6 +5,10 @@
         "node":       true
     },
 
+    "settings": {
+        "jsx":        true
+    },
+
     "globals": {
         "define":     false,
         "require":    true,
@@ -39,8 +43,9 @@
         "no-new":               0, // allow new,
         "no-nested-ternary":    1,
 
-        // requires local variable names to be used, but allows unused arguments
-        "no-unused-vars":       [2, { "vars": "all", "args": "none" }],
+        // Fix JSX for now...
+        "no-unused-vars":       0,
+        "semi":                 0,
 
         // disable requirements for strict spacing rules in object properties or assignments
         "key-spacing":          0,
