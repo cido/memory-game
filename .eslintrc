@@ -46,6 +46,7 @@
         // Fix JSX for now...
         "no-unused-vars":       0,
         "semi":                 0,
+        "no-multi-str":         0,
 
         // disable requirements for strict spacing rules in object properties or assignments
         "key-spacing":          0,
