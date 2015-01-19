@@ -27,10 +27,7 @@ var SRC = "./src/",
    files to the browser automatically
 */
 gulp.task("startServer", function() {
-    browserSync({
-        browser: "google chrome",
-        server: { baseDir: DEST }
-    });
+    browserSync({ server: { baseDir: DEST } });
 });
 
 function reloadBrowser() {
