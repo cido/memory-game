@@ -18,6 +18,6 @@ var r = React.render(
 );
 
 State.onChange(function() {
-    console.log("triggering re-rendering")
+    //console.log("Triggering re-rendering")
     r.setProps();
 });

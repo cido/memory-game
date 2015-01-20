@@ -1,7 +1,8 @@
 var _ = require("lodash"),
     jsonp = require("./lib/jsonp");
 
-var REDDIT_URL = "http://www.reddit.com/r/perfectloops/top.json?sort=top&t=week&jsonp=callbackFunction",
+var TITLE = "El Juego de Memoria",
+    REDDIT_URL = "http://www.reddit.com/r/perfectloops/top.json?sort=top&t=week&jsonp=callbackFunction",
     FALLBACK_CARD_BGS = [
         // Initial background values are just colors. Where is all our GIFs?!?
         "#000", "#111", "#222", "#333", "#444",
@@ -20,10 +21,7 @@ exports.onChange = function onChange(cb) {
 
 var state = {
     board: "start",
-    cards: [],
-    title: "El Juego de Memoria",
-    round: 0,
-    points: 1000
+    title: TITLE
 };
 
 exports.get = function get(key) {
@@ -45,7 +43,7 @@ function setCards(backgrounds) {
     exports.set("cards", cards);
 }
 
-exports.Helpers.fetchNewCards = function fetchNewCards() {
+function fetchNewCards() {
     jsonp(REDDIT_URL, { param: "jsonp" }, function(err, response) {
         if (err) {
             console.log("Something went wrong with the Reddit call :(");
@@ -82,7 +80,24 @@ exports.Helpers.fetchNewCards = function fetchNewCards() {
         informAboutChange();
     });
 }
-exports.Helpers.fetchNewCards();
+
+exports.Helpers.initializeGame = function initializeGame() {
+    state.board = "game";
+    state.cards = [];
+    state.title = TITLE;
+    state.round += 1;
+    state.points = 1000;
+    fetchNewCards();
+    informAboutChange();
+};
+
+function isSelected(card) {
+    return card.selected;
+}
+
+function isFound(card) {
+    return card.found;
+}
 
 var clearingTimeout;
 
@@ -90,7 +105,7 @@ exports.Helpers.cardSelected = function cardSelected(index) {
     state.points -= 1;
     state.title = "Les Puntos de la Vida: " + state.points;
 
-    var preselected = state.cards.filter(function(card) { return card.selected; });
+    var preselected = state.cards.filter(isSelected);
 
     if (preselected.length >= 2) {
         return;
@@ -102,7 +117,7 @@ exports.Helpers.cardSelected = function cardSelected(index) {
 
     clearTimeout(clearingTimeout);
     clearingTimeout = setTimeout(function() {
-        var selected = state.cards.filter(function(card) { return card.selected; });
+        var selected = state.cards.filter(isSelected);
 
         if (selected.length < 2) {
             return;
@@ -117,6 +132,11 @@ exports.Helpers.cardSelected = function cardSelected(index) {
                 setTimeout(function() {
                     card.found = true;
                     card.selected = false;
+
+                    if (state.cards.every(isFound)) {
+                        state.board = "high-scores";
+                    }
+
                     informAboutChange();
                 }, 500);
             } else {

@@ -10,7 +10,7 @@ module.exports = React.createClass({
     },
 
     startGame: function() {
-        State.set("board", "game");
+        State.Helpers.initializeGame();
     }
 
 });
