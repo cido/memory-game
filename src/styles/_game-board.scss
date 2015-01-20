@@ -1,0 +1,61 @@
+$rows: 3;
+$columns: 10;
+$margin: 5px;
+.card {
+	position: relative;
+	display: inline-block;
+	width: calc(#{100% / $columns} - #{$margin*2});
+	height: calc(#{100% / $rows} - #{$margin*3});
+	margin: 5px;
+
+	transition: opacity 2s;
+	&.found {
+		opacity: 0;
+	}
+
+	/*
+		These card flip CSS styles assume that a card is built like this:
+		<div class="card">
+			<div class="flipper">
+				<div class="front"></div>
+				<div class="back"></div>
+			</div>
+		</div>
+	*/
+
+	perspective: 1000;
+
+	.flipper, .front, .back {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 5px;
+	}
+
+	.flipper {
+		transform-style: preserve-3d;
+		transition: transform 1s;
+	}
+
+	&.selected {
+		.flipper {
+			transform: rotateY( 180deg );
+		}
+	}
+
+	.front {
+		background-size: cover;
+		transform: rotateY( 180deg );
+		backface-visibility: hidden;
+	}
+
+	.back {
+		background-color: #222;
+		backface-visibility: hidden;
+		text-align: center;
+		line-height: 3em;
+		color: #aaa;
+	}
+}

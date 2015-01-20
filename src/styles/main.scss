@@ -1,2 +1,15 @@
-@import "scss-mixins";
-@import "typography";
+//@import "scss-mixins";
+//@import "typography";
+
+$titleHeight: 100px;
+
+@import "title";
+@import "boards";
+
+body {
+	//background-color: green;
+	background-image: url("../images/green.jpg");
+	background-size: cover;
+	-webkit-background-size: cover;
+	font-family: "Arial Black", "Impact", "Arial", sans-serif;
+}

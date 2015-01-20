@@ -1,0 +1,16 @@
+.title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $titleHeight;
+	overflow: hidden;
+
+
+	text-shadow: 0px 1px 1px #264C05;
+	color: #5D7005;
+
+	line-height: $titleHeight;
+	text-align: center;
+	font-size: $titleHeight/1.6;
+}
