@@ -1,15 +1,51 @@
-//@import "scss-mixins";
-//@import "typography";
-
 $titleHeight: 100px;
 
-@import "title";
-@import "boards";
+@import "card";
 
 body {
-	//background-color: green;
+	background-color: #577207;
 	background-image: url("../images/green.jpg");
 	background-size: cover;
 	-webkit-background-size: cover;
 	font-family: "Arial Black", "Impact", "Arial", sans-serif;
+}
+
+.title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $titleHeight;
+	overflow: hidden;
+
+
+	text-shadow: 0px 1px 1px #264C05;
+	color: #5D7005;
+
+	line-height: $titleHeight;
+	text-align: center;
+	font-size: $titleHeight/1.6;
+}
+
+.board {
+	position: absolute;
+	top: $titleHeight;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.start-button {
+	$width: 40%;
+	$height: 30%;
+	position: absolute;
+	left: 50% - ($width/2);
+	width: $width;
+	top: 50% - ($height/2);
+	height: $height;
+
+	border-radius: 10px;
+	background-color: #425702;
+	border: 0;
+	color: #eee
 }

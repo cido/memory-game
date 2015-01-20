@@ -84,8 +84,11 @@ exports.Helpers.fetchNewCards = function fetchNewCards() {
 }
 exports.Helpers.fetchNewCards();
 
+var clearingTimeout;
+
 exports.Helpers.cardSelected = function cardSelected(index) {
     state.points -= 1;
+    state.title = "Les Puntos de la Vida: " + state.points;
 
     var preselected = state.cards.filter(function(card) { return card.selected; });
 
@@ -97,7 +100,8 @@ exports.Helpers.cardSelected = function cardSelected(index) {
     card.selected = !card.selected;
     informAboutChange();
 
-    setTimeout(function() {
+    clearTimeout(clearingTimeout);
+    clearingTimeout = setTimeout(function() {
         var selected = state.cards.filter(function(card) { return card.selected; });
 
         if (selected.length < 2) {
