@@ -3,20 +3,20 @@
     to { opacity: 0.1; }
 }
 
-.start-board, .high-scores-board {
+.start-board {
     display: table;
     text-align: center;
     vertical-align: middle;
+
+    .start-link-container {
+        display: table-cell;
+        vertical-align: middle;
+        padding-bottom: $titleHeight;
+    }
 }
 
-.high-scores-board h1 {
-    display: table-cell;
-}
-
-.start-link-container {
-    display: table-cell;
-    vertical-align: middle;
-    padding-bottom: $titleHeight;
+.high-scores-board {
+    text-align: center;
 }
 
 .start-link {
@@ -39,9 +39,4 @@
         -webkit-animation: none;
         animation: none;
     }
-
-    /*border-radius: 10px;
-    background-color: #425702;
-    border: 0;
-    color: #eee*/
 }

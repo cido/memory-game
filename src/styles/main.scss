@@ -2,14 +2,14 @@ $titleHeight: 100px;
 
 @import "utils";
 @import "card";
-@import "start-board";
+@import "start-boards";
 
 body {
     background-color: #577207;
-    background-image: url("../images/green.jpg");
+    background: url("../images/green.jpg") no-repeat center center fixed;
     background-size: cover;
-    -webkit-background-size: cover;
     font-family: "Arial Black", "Impact", "Arial", sans-serif;
+    color: #033405;
 }
 
 .title {

@@ -28,11 +28,6 @@ exports.get = function get(key) {
     return state[key];
 };
 
-/*exports.set = function set(key, value) {
-    state[key] = value;
-    informAboutChange();
-};*/
-
 // ===========================================================================
 
 exports.Helpers = {};
@@ -91,6 +86,12 @@ exports.Helpers.initializeGame = function initializeGame() {
     informAboutChange();
 };
 
+function endGame() {
+    state.board = "high-scores";
+    state.title = "Puntos";
+    informAboutChange();
+}
+
 function isSelected(card) {
     return card.selected;
 }
@@ -134,10 +135,11 @@ exports.Helpers.cardSelected = function cardSelected(index) {
                     card.selected = false;
 
                     if (state.cards.every(isFound)) {
-                        state.board = "high-scores";
+                        endGame();
+                    } else {
+                        informAboutChange();
                     }
 
-                    informAboutChange();
                 }, 500);
             } else {
                 card.selected = false;

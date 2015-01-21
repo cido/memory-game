@@ -5,8 +5,9 @@ var React = require("../lib/react"),
 module.exports = React.createClass({
 
     render: function() {
+        var points = State.get("points");
         return <div className="board high-scores-board">
-            <h1>Incert some highscores here</h1>
+            <h1>💃 Usted consiguió {points} puntos 💃</h1>
             <StartLink />
         </div>
     },
