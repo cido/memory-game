@@ -6,8 +6,11 @@
     * ...set the cards to state.cards
 
 * Draw the cards to the GameBoard
+    * It would be handy to use a new view (Card.jsx)
+    * One could perhaps want to click a Card. You could add a State helper for it; State.cardSelected
+    * To make some meaningful actions, you might want to change the DOM tree of an invidual Card to reflect the one that is define in styles. In simpler terms: Change what is inside a Card.render. Check example for it from _card.scss
 
-* Implement flipping of a card on a click (SASS styles are premade)
+* Implement flipping of a card on a click
     * It would be handy to be able to select only two cards
     * It would be handy to be able to de-select a selected card
 
