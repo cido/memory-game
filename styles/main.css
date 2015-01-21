@@ -1,0 +1,168 @@
+/* line 4, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+.card {
+  position: relative;
+  display: inline-block;
+  width: calc(10% - 10px);
+  height: calc(33.33333% - 15px);
+  margin: 5px;
+  transition: opacity 2s;
+  /*
+		These card flip CSS styles assume that a card is built like this:
+		<div class="card">
+			<div class="flipper">
+				<div class="front"></div>
+				<div class="back"></div>
+			</div>
+		</div>
+	*/
+  perspective: 1000; }
+  /* line 12, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+  .card.found {
+    opacity: 0; }
+  /* line 28, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+  .card .flipper, .card .front, .card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px; }
+  /* line 37, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+  .card .flipper {
+    transform-style: preserve-3d;
+    transition: transform 1s; }
+  /* line 43, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+  .card.selected .flipper {
+    transform: rotateY(180deg); }
+  /* line 48, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+  .card .front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 2;
+    transform: rotateY(180deg);
+    backface-visibility: hidden; }
+  /* line 58, /Users/jkap/Projects/memory-game/src/styles/_card.scss */
+  .card .back {
+    background-image: url("../images/futurice.png");
+    background-size: 70% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 2px solid #fff;
+    background-color: #222;
+    backface-visibility: hidden;
+    text-align: center;
+    line-height: 3em;
+    color: #333333; }
+
+@-webkit-keyframes opacity_change {
+  /* line 2, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  from {
+    opacity: 1; }
+
+  /* line 3, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  to {
+    opacity: 0.1; } }
+
+@-ms-keyframes opacity_change {
+  /* line 2, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  from {
+    opacity: 1; }
+
+  /* line 3, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  to {
+    opacity: 0.1; } }
+
+@-moz-keyframes opacity_change {
+  /* line 2, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  from {
+    opacity: 1; }
+
+  /* line 3, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  to {
+    opacity: 0.1; } }
+
+@-o-keyframes opacity_change {
+  /* line 2, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  from {
+    opacity: 1; }
+
+  /* line 3, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  to {
+    opacity: 0.1; } }
+
+@keyframes opacity_change {
+  /* line 2, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  from {
+    opacity: 1; }
+
+  /* line 3, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  to {
+    opacity: 0.1; } }
+
+/* line 6, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+.start-board {
+  display: table;
+  text-align: center;
+  vertical-align: middle; }
+  /* line 11, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  .start-board .start-link-container {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 100px; }
+
+/* line 18, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+.high-scores-board {
+  text-align: center; }
+
+/* line 22, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+.start-link {
+  font-size: 55.55556px;
+  font-style: italic;
+  padding: 10px;
+  -webkit-animation: opacity_change 1s infinite alternate;
+  -ms-animation: opacity_change 1s infinite alternate;
+  -moz-animation: opacity_change 1s infinite alternate;
+  -o-animation: opacity_change 1s infinite alternate;
+  animation: opacity_change 1s infinite alternate; }
+  /* line 27, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  .start-link, .start-link:link, .start-link:visited, .start-link:hover, .start-link:active {
+    text-decoration: none;
+    color: #033405; }
+  /* line 34, /Users/jkap/Projects/memory-game/src/styles/_start-boards.scss */
+  .start-link:hover {
+    -webkit-animation: none;
+    animation: none; }
+
+/* line 7, /Users/jkap/Projects/memory-game/src/styles/main.scss */
+body {
+  background-color: #577207;
+  background: url("../images/green.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Arial Black", "Impact", "Arial", sans-serif;
+  color: #033405; }
+
+/* line 15, /Users/jkap/Projects/memory-game/src/styles/main.scss */
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  overflow: hidden;
+  text-shadow: 0px 1px 1px #264C05;
+  color: #5D7005;
+  line-height: 100px;
+  text-align: center;
+  font-size: 62.5px; }
+
+/* line 32, /Users/jkap/Projects/memory-game/src/styles/main.scss */
+.board {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  height: calc(100% - 100px);
+  width: 100%; }
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9jYXJkLnNjc3MiLCJfdXRpbHMuc2NzcyIsIl9zdGFydC1ib2FyZHMuc2NzcyIsIm1haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBR0E7RUFDQyxBQUFVO0VBQ1YsQUFBUztFQUNULEFBQU87RUFDUCxBQUFRO0VBQ1IsQUFBUTtFQUVSLEFBQVk7Ozs7Ozs7Ozs7RUFlWixBQUFhOztFQWZkLEFBQUs7SUFFSCxBQUFTOztFQWFYLEFBQU0sQUFBVSxBQUFNLEFBQVEsQUFBTTtJQUdsQyxBQUFVO0lBQ1YsQUFBSztJQUNMLEFBQU07SUFDTixBQUFPO0lBQ1AsQUFBUTtJQUNSLEFBQWU7O0VBQ2pCLEFBQU07SUFHSixBQUFpQjtJQUNqQixBQUFZOztFQUdkLEFBQUssQUFBVTtJQUVaLEFBQVc7O0VBRWQsQUFBTTtJQUdKLEFBQWlCO0lBQ2pCLEFBQWtCO0lBQ2xCLEFBQXFCO0lBRXJCLEFBQVM7SUFDVCxBQUFXO0lBQ1gsQUFBcUI7O0VBQ3ZCLEFBQU07SUFJSixBQUFrQjtJQUNsQixBQUFpQjtJQUNqQixBQUFtQjtJQUNuQixBQUFxQjtJQUVyQixBQUFRO0lBRVIsQUFBa0I7SUFDbEIsQUFBcUI7SUFDckIsQUFBWTtJQUNaLEFBQWE7SUFDYixBQUFPOzttQkM3RFQ7O0VDVEE7SUFDVyxBQUFTOzs7RUFBcEI7SUFDUyxBQUFTOztlRFFsQjs7RUNWQTtJQUNXLEFBQVM7OztFQUFwQjtJQUNTLEFBQVM7O2dCRFNsQjs7RUNYQTtJQUNXLEFBQVM7OztFQUFwQjtJQUNTLEFBQVM7O2NEVWxCOztFQ1pBO0lBQ1csQUFBUzs7O0VBQXBCO0lBQ1MsQUFBUzs7V0RXbEI7O0VDYkE7SUFDVyxBQUFTOzs7RUFBcEI7SUFDUyxBQUFTOzs7QUFHbEI7RUFDSSxBQUFTO0VBQ1QsQUFBWTtFQUNaLEFBQWdCOztFQUFwQixBQUFhO0lBR0wsQUFBUztJQUNULEFBQWdCO0lBQ2hCLEFDYk07OztBRGlCZDtFQUNJLEFBQVk7OztBQUdoQjtFQUNJLEFBQVc7RUFDWCxBQUFZO0VBQ1osQUFBUztFRHZCWCxBQUFrQjtFQUNsQixBQUFjO0VBQ2QsQUFBZTtFQUNmLEFBQWE7RUFDYixBQUFVOztFQ21CWixBQUFhLEFBQVcsQUFBTyxBQUFXLEFBQVUsQUFBVyxBQUFRLEFBQVc7SUFHMUUsQUFBaUI7SUFDakIsQUFBTzs7RUFHZixBQUFXO0lBR0gsQUFBbUI7SUFDbkIsQUFBVzs7O0FDN0JuQjtFQUNJLEFBQWtCO0VBQ2xCLEFBQXFDO0VBQ3JDLEFBQWlCO0VBQ2pCLEFBQWE7RUFDYixBQUFPOzs7QUFHWDtFQUNJLEFBQVU7RUFDVixBQUFLO0VBQ0wsQUFBTTtFQUNOLEFBQU87RUFsQkcsQUFtQlY7RUFDQSxBQUFVO0VBR1YsQUFBYTtFQUNiLEFBQU87RUF4QkcsQUEwQlY7RUFDQSxBQUFZO0VBQ1osQUFBVzs7O0FBR2Y7RUFDSSxBQUFVO0VBaENBLEFBaUNWO0VBQ0EsQUFBTTtFQUNOLEFBQVE7RUFDUixBQUFPIiwiZmlsZSI6Im1haW4uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiJHJvd3M6IDM7XG4kY29sdW1uczogMTA7XG4kbWFyZ2luOiA1cHg7XG4uY2FyZCB7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXHR3aWR0aDogY2FsYygjezEwMCUgLyAkY29sdW1uc30gLSAjeyRtYXJnaW4qMn0pO1xuXHRoZWlnaHQ6IGNhbGMoI3sxMDAlIC8gJHJvd3N9IC0gI3skbWFyZ2luKjN9KTtcblx0bWFyZ2luOiA1cHg7XG5cblx0dHJhbnNpdGlvbjogb3BhY2l0eSAycztcblx0Ji5mb3VuZCB7XG5cdFx0b3BhY2l0eTogMDtcblx0fVxuXG5cdC8qXG5cdFx0VGhlc2UgY2FyZCBmbGlwIENTUyBzdHlsZXMgYXNzdW1lIHRoYXQgYSBjYXJkIGlzIGJ1aWx0IGxpa2UgdGhpczpcblx0XHQ8ZGl2IGNsYXNzPVwiY2FyZFwiPlxuXHRcdFx0PGRpdiBjbGFzcz1cImZsaXBwZXJcIj5cblx0XHRcdFx0PGRpdiBjbGFzcz1cImZyb250XCI+PC9kaXY+XG5cdFx0XHRcdDxkaXYgY2xhc3M9XCJiYWNrXCI+PC9kaXY+XG5cdFx0XHQ8L2Rpdj5cblx0XHQ8L2Rpdj5cblx0Ki9cblxuXHRwZXJzcGVjdGl2ZTogMTAwMDtcblxuXHQuZmxpcHBlciwgLmZyb250LCAuYmFjayB7XG5cdFx0cG9zaXRpb246IGFic29sdXRlO1xuXHRcdHRvcDogMDtcblx0XHRsZWZ0OiAwO1xuXHRcdHJpZ2h0OiAwO1xuXHRcdGJvdHRvbTogMDtcblx0XHRib3JkZXItcmFkaXVzOiA1cHg7XG5cdH1cblxuXHQuZmxpcHBlciB7XG5cdFx0dHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcblx0XHR0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMXM7XG5cdH1cblxuXHQmLnNlbGVjdGVkIHtcblx0XHQuZmxpcHBlciB7XG5cdFx0XHR0cmFuc2Zvcm06IHJvdGF0ZVkoIDE4MGRlZyApO1xuXHRcdH1cblx0fVxuXG5cdC5mcm9udCB7XG5cdFx0YmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcblx0XHRiYWNrZ3JvdW5kLXJlcGVhdDpuby1yZXBlYXQ7XG5cdFx0YmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcblxuXHRcdHotaW5kZXg6IDI7XG5cdFx0dHJhbnNmb3JtOiByb3RhdGVZKCAxODBkZWcgKTtcblx0XHRiYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XG5cdH1cblxuXHQuYmFjayB7XG5cblx0XHRiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi9pbWFnZXMvZnV0dXJpY2UucG5nXCIpO1xuXHRcdGJhY2tncm91bmQtc2l6ZTogNzAlIGF1dG87XG5cdFx0YmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcblx0XHRiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xuXG5cdFx0Ym9yZGVyOiAycHggc29saWQgI2ZmZjtcblxuXHRcdGJhY2tncm91bmQtY29sb3I6ICMyMjI7XG5cdFx0YmFja2ZhY2UtdmlzaWJpbGl0eTogaGlkZGVuO1xuXHRcdHRleHQtYWxpZ246IGNlbnRlcjtcblx0XHRsaW5lLWhlaWdodDogM2VtO1xuXHRcdGNvbG9yOiAjMzMzMzMzO1xuXHR9XG59XG4iLCJAbWl4aW4gdmVuZG9yLXByZWZpeCgkbmFtZSwgJGFyZ3VtZW50KSB7XG4gIC13ZWJraXQtI3skbmFtZX06ICN7JGFyZ3VtZW50fTtcbiAgLW1zLSN7JG5hbWV9OiAjeyRhcmd1bWVudH07XG4gIC1tb3otI3skbmFtZX06ICN7JGFyZ3VtZW50fTtcbiAgLW8tI3skbmFtZX06ICN7JGFyZ3VtZW50fTtcbiAgI3skbmFtZX06ICN7JGFyZ3VtZW50fTtcbn1cblxuQG1peGluIGtleWZyYW1lcygkbmFtZSkge1xuXHRALXdlYmtpdC1rZXlmcmFtZXMgI3skbmFtZX0geyBAY29udGVudDsgfVxuXHRALW1zLWtleWZyYW1lcyAjeyRuYW1lfSB7IEBjb250ZW50OyB9XG5cdEAtbW96LWtleWZyYW1lcyAjeyRuYW1lfSB7IEBjb250ZW50OyB9XG5cdEAtby1rZXlmcmFtZXMgI3skbmFtZX0geyBAY29udGVudDsgfVxuXHRAa2V5ZnJhbWVzICN7JG5hbWV9IHsgQGNvbnRlbnQ7IH1cbn1cbiIsIkBpbmNsdWRlIGtleWZyYW1lcyhvcGFjaXR5X2NoYW5nZSkge1xuICAgIGZyb20geyBvcGFjaXR5OiAxOyB9XG4gICAgdG8geyBvcGFjaXR5OiAwLjE7IH1cbn1cblxuLnN0YXJ0LWJvYXJkIHtcbiAgICBkaXNwbGF5OiB0YWJsZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcblxuICAgIC5zdGFydC1saW5rLWNvbnRhaW5lciB7XG4gICAgICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gICAgICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gICAgICAgIHBhZGRpbmctYm90dG9tOiAkdGl0bGVIZWlnaHQ7XG4gICAgfVxufVxuXG4uaGlnaC1zY29yZXMtYm9hcmQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLnN0YXJ0LWxpbmsge1xuICAgIGZvbnQtc2l6ZTogJHRpdGxlSGVpZ2h0LzEuODtcbiAgICBmb250LXN0eWxlOiBpdGFsaWM7XG4gICAgcGFkZGluZzogMTBweDtcblxuICAgICYsICY6bGluaywgJjp2aXNpdGVkLCAmOmhvdmVyLCAmOmFjdGl2ZSB7XG4gICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICAgICAgY29sb3I6ICMwMzM0MDU7XG4gICAgfVxuXG4gICAgQGluY2x1ZGUgdmVuZG9yLXByZWZpeChhbmltYXRpb24sIG9wYWNpdHlfY2hhbmdlIDFzIGluZmluaXRlIGFsdGVybmF0ZSk7XG5cbiAgICAmOmhvdmVyIHtcbiAgICAgICAgLXdlYmtpdC1hbmltYXRpb246IG5vbmU7XG4gICAgICAgIGFuaW1hdGlvbjogbm9uZTtcbiAgICB9XG59XG4iLCIkdGl0bGVIZWlnaHQ6IDEwMHB4O1xuXG5AaW1wb3J0IFwidXRpbHNcIjtcbkBpbXBvcnQgXCJjYXJkXCI7XG5AaW1wb3J0IFwic3RhcnQtYm9hcmRzXCI7XG5cbmJvZHkge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM1NzcyMDc7XG4gICAgYmFja2dyb3VuZDogdXJsKFwiLi4vaW1hZ2VzL2dyZWVuLmpwZ1wiKSBuby1yZXBlYXQgY2VudGVyIGNlbnRlciBmaXhlZDtcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgIGZvbnQtZmFtaWx5OiBcIkFyaWFsIEJsYWNrXCIsIFwiSW1wYWN0XCIsIFwiQXJpYWxcIiwgc2Fucy1zZXJpZjtcbiAgICBjb2xvcjogIzAzMzQwNTtcbn1cblxuLnRpdGxlIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7XG4gICAgaGVpZ2h0OiAkdGl0bGVIZWlnaHQ7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcblxuXG4gICAgdGV4dC1zaGFkb3c6IDBweCAxcHggMXB4ICMyNjRDMDU7XG4gICAgY29sb3I6ICM1RDcwMDU7XG5cbiAgICBsaW5lLWhlaWdodDogJHRpdGxlSGVpZ2h0O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6ICR0aXRsZUhlaWdodC8xLjY7XG59XG5cbi5ib2FyZCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogJHRpdGxlSGVpZ2h0O1xuICAgIGxlZnQ6IDA7XG4gICAgaGVpZ2h0OiBjYWxjKDEwMCUgLSAjeyR0aXRsZUhlaWdodH0pO1xuICAgIHdpZHRoOiAxMDAlO1xufVxuXG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */
