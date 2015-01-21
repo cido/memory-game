@@ -5,7 +5,9 @@ module.exports = React.createClass({
 
     render: function() {
         return <div className="board start-board">
-            <button className="start-button" onClick={this.startGame}>Start game!</button>
+            <div className="start-link-container">
+                <a href="#" className="start-link" onClick={this.startGame}>Iniciar el juego!</a>
+            </div>
         </div>
     },
 

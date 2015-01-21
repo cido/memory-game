@@ -1,0 +1,43 @@
+@include keyframes(opacity_change) {
+    from { opacity: 1; }
+    to { opacity: 0.1; }
+}
+
+.start-board {
+    display: table;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.start-link-container {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: $titleHeight;
+}
+
+.start-link {
+    font-size: $titleHeight/1.8;
+    font-style: italic;
+    padding: 10px;
+
+    &, &:link, &:visited, &:hover, &:active {
+        text-decoration: none;
+        color: #033405;
+    }
+
+    -webkit-animation: opacity_change 1s infinite alternate;
+    -moz-animation: opacity_change 1s infinite alternate;
+    -ms-animation: opacity_change 1s infinite alternate;
+    -o-animation: opacity_change 1s infinite alternate;
+    animation: opacity_change 1s infinite alternate;
+
+    &:hover {
+        -webkit-animation: none;
+        animation: none;
+    }
+
+    /*border-radius: 10px;
+    background-color: #425702;
+    border: 0;
+    color: #eee*/
+}
