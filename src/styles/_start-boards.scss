@@ -29,11 +29,7 @@
         color: #033405;
     }
 
-    -webkit-animation: opacity_change 1s infinite alternate;
-    -moz-animation: opacity_change 1s infinite alternate;
-    -ms-animation: opacity_change 1s infinite alternate;
-    -o-animation: opacity_change 1s infinite alternate;
-    animation: opacity_change 1s infinite alternate;
+    @include vendor-prefix(animation, opacity_change 1s infinite alternate);
 
     &:hover {
         -webkit-animation: none;
