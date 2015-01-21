@@ -34,39 +34,20 @@ exports.Helpers = {};
 
 function fetchNewCards() {
     jsonp(REDDIT_URL, { param: "jsonp" }, function(err, response) {
-        if (err) {
-            console.log("Something went wrong with the Reddit call :(");
-            return;
-        }
-
-        var urls = response.data.children
-            .map(function(child) {
-                return child.data.url.replace(".gifv", ".gif");
-            })
-            .filter(function(url) {
-                return url.indexOf(".gif") > 0;
-            });
-
-        var cardBgs = []
-        for (var i = 0; i < FALLBACK_CARD_BGS.length; i++) {
-            cardBgs[i] = urls[i] || FALLBACK_CARD_BGS[i];
-        }
-
-        var cardNumbers = _.shuffle(_.flatten([
-            _.range(FALLBACK_CARD_BGS.length),
-            _.range(FALLBACK_CARD_BGS.length)
-        ]));
-
-        state.cards = cardNumbers.map(function(cardNumber) {
-            return {
-                number: cardNumber,
-                url: urls[cardNumber],
+        /*
+            ...
+            ...
+            In the end, you should set the state.cards to be an array
+            of 2*n (eg. 2*15 cards). The included objects should follow
+            structure of
+            {
+                url: "some string here for the background image",
                 selected: false,
                 found: false
             }
-        });
-
-        informAboutChange();
+        */
+        // state.cards = [ ... ]
+        // informAboutChange();
     });
 }
 
@@ -79,67 +60,3 @@ exports.Helpers.initializeGame = function initializeGame() {
     fetchNewCards();
     informAboutChange();
 };
-
-function endGame() {
-    state.board = "high-scores";
-    state.title = "Puntos";
-    informAboutChange();
-}
-
-function isSelected(card) {
-    return card.selected;
-}
-
-function isFound(card) {
-    return card.found;
-}
-
-var clearingTimeout;
-
-exports.Helpers.cardSelected = function cardSelected(index) {
-    state.points -= 1;
-    state.title = "Les Puntos de la Vida: " + state.points;
-
-    var preselected = state.cards.filter(isSelected);
-
-    if (preselected.length >= 2) {
-        return;
-    }
-
-    var card = state.cards[index];
-    card.selected = !card.selected;
-    informAboutChange();
-
-    clearTimeout(clearingTimeout);
-    clearingTimeout = setTimeout(function() {
-        var selected = state.cards.filter(isSelected);
-
-        if (selected.length < 2) {
-            return;
-        }
-
-        var urls = _.pluck(selected, "url"),
-            first = _.first(urls),
-            match = urls.every(function(url) { return url === first; });
-
-        selected.forEach(function(card) {
-            if (match) {
-                setTimeout(function() {
-                    card.found = true;
-                    card.selected = false;
-
-                    if (state.cards.every(isFound)) {
-                        endGame();
-                    } else {
-                        informAboutChange();
-                    }
-
-                }, 500);
-            } else {
-                card.selected = false;
-            }
-        });
-        informAboutChange();
-
-    }, 2000);
-}

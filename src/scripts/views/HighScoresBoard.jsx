@@ -5,10 +5,8 @@ var React = require("../lib/react"),
 module.exports = React.createClass({
 
     render: function() {
-        var points = State.get("points");
         return <div className="board high-scores-board">
-            <h1>💃 Usted consiguió {points} puntos 💃</h1>
-            <StartLink />
+            High scores should go here
         </div>
     },
 
