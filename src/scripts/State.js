@@ -32,12 +32,6 @@ exports.get = function get(key) {
 
 exports.Helpers = {};
 
-function setCards(backgrounds) {
-    // backgrounds in an array of 15 strings
-    var cards = _.shuffle([backgrounds, backgrounds]);
-    exports.set("cards", cards);
-}
-
 function fetchNewCards() {
     jsonp(REDDIT_URL, { param: "jsonp" }, function(err, response) {
         if (err) {
