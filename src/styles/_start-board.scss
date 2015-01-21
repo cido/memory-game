@@ -3,10 +3,14 @@
     to { opacity: 0.1; }
 }
 
-.start-board {
+.start-board, .high-scores-board {
     display: table;
     text-align: center;
     vertical-align: middle;
+}
+
+.high-scores-board h1 {
+    display: table-cell;
 }
 
 .start-link-container {

@@ -28,10 +28,10 @@ exports.get = function get(key) {
     return state[key];
 };
 
-exports.set = function set(key, value) {
+/*exports.set = function set(key, value) {
     state[key] = value;
     informAboutChange();
-};
+};*/
 
 // ===========================================================================
 

@@ -56,10 +56,18 @@ $margin: 5px;
 	}
 
 	.back {
+
+		background-image: url("../images/futurice.png");
+		background-size: 70% auto;
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		border: 2px solid #fff;
+
 		background-color: #222;
 		backface-visibility: hidden;
 		text-align: center;
 		line-height: 3em;
-		color: #aaa;
+		color: #333333;
 	}
 }
